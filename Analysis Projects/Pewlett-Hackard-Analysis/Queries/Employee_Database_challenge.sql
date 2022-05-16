@@ -339,4 +339,14 @@ FROM
 GROUP BY
 	title
 
+-- Retrieve data from employees
+SELECT emp_no,
+    first_name,
+last_name,
+birth_date
+INTO mentorship_eligibility
+FROM employees
 
+SELECT * from mentorship_eligibility
+
+DROP TABLE mentorship_eligibility
