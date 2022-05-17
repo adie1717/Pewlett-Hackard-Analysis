@@ -333,20 +333,81 @@ SELECT * from unique_titles
 DROP TABLE unique_titles
 
 SELECT
-	COUNT(title)
+	COUNT(title), title
+INTO retirement_titles
 FROM
 	unique_titles
 GROUP BY
 	title
+ORDER BY count desc
 
+SELECT * FROM retirement_titles
+
+DROP TABLE retirement_titles
 -- Retrieve data from employees
 SELECT emp_no,
     first_name,
 last_name,
 birth_date
-INTO mentorship_eligibility
 FROM employees
 
-SELECT * from mentorship_eligibility
 
+-- Retrieve from and to date from Department Employees
+SELECT to_date,
+from_date
+FROM dept_emp
+
+
+-- Retrieve titles from title table
+SELECT title
+FROM titles
+
+DROP TABLE mentorship_eligibility 
+
+DROP TABLE mentorship_eligibility2
+
+-- Use Dictinct with  to remove duplicate rows on employee numbers
+SELECT DISTINCT ON (emp_no)
+emp_no,
+first_name,
+last_name
+INTO mentorship_eligibility
+FROM employees
+ORDER BY 
+	emp_no, 
+	first_name; 
+	
+SELECT * FROM mentorship_eligibility
+
+DROP TABLE mentorship_eligibility_final
+
+-- Join Employees and Titles
+SELECT employees.emp_no,
+first_name,
+last_name,
+birth_date
+FROM employees
+INNER JOIN titles
+ON employees.emp_no = titles.emp_no
+
+-- Join Employees and Departments
+SELECT DISTINCT ON (employees.emp_no)
+employees.emp_no,
+employees.first_name,
+employees.last_name,
+employees.birth_date,
+dept_emp.to_date,
+dept_emp.from_date,
+titles.title
+INTO mentorship_eligibility
+FROM employees
+INNER JOIN dept_emp
+ON (employees.emp_no = dept_emp.emp_no)
+INNER JOIN titles
+ON (employees.emp_no = titles.emp_no)
+WHERE birth_date BETWEEN '1965-01-01' AND '1965-12-31'
+ORDER BY employees.emp_no;
+	
 DROP TABLE mentorship_eligibility
+
+SELECT * FROM mentorship_eligibility
