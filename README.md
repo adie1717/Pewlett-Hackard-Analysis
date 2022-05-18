@@ -5,8 +5,9 @@ The purpose of this analysis was two fold; to help determine the number of retir
 ## Results: Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
 
 * In our first analysis we were able to identify the type of employees and departments that would experience the biggest impact. By far employees with the tile 'Engineer' have the highest amount of retiring employees with a whopping 30,994. 
-* The lowest impact will be in the managerial department with only 6 employees with a title of 'Manager' retiring. 
-* ![Pewlett-Hackard-Analysis](https://github.com/adie1717/Pewlett-Hackard-Analysis/blob/main/analysis/Retirement_titles.png)
+* The lowest impact will be in the managerial department with only 6 employees with a title of 'Manager' retiring.
+ 
+ ![Pewlett-Hackard-Analysis](https://github.com/adie1717/Pewlett-Hackard-Analysis/blob/main/Analysis%20Projects/Pewlett-Hackard-Analysis/Retirement_titles.PNG)
 
 ## Summary: 
 
